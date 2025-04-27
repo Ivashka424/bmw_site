@@ -1,0 +1,95 @@
+{% extends 'cars/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero-section mb-5">
+    <div class="p-5 bg-light rounded-3" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{% static 'images/main_banner.png' %}') center/cover;">
+        <div class="container-fluid py-5 text-white">
+            <h1 class="display-5 fw-bold">Добро пожаловать в клуб BMW</h1>
+            <p class="col-md-8 fs-4">Откройте для себя истинное удовольствие от вождения</p>
+            <a href="{% url 'model_list' %}" class="btn btn-primary btn-lg">Исследовать модели</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <h2 class="mb-4"><i class="fas fa-newspaper me-2"></i>Последние новости</h2>
+
+        <div class="card mb-4">
+            <img src="{% static 'images/news1.png' %}" class="card-img-top" alt="Новая BMW iX" style="height: 300px; object-fit: cover;">
+            <div class="card-body">
+                <h3 class="card-title">BMW представляет новую электрическую модель iX</h3>
+                <p class="card-text">Компания BMW объявила о старте продаж нового полностью электрического кроссовера iX. Модель получила запас хода до 630 км по стандарту WLTP и революционную систему управления iDrive 8.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">
+                        <i class="far fa-calendar-alt me-1"></i>15.05.2023
+                    </small>
+                    <a href="{% url 'news_list' %}" class="btn btn-outline-primary">Читать далее</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <img src="{% static 'images/news2.png' %}" class="card-img-top" alt="Обновленная серия 3" style="height: 300px; object-fit: cover;">
+            <div class="card-body">
+                <h3 class="card-title">Обновленная BMW 3 серии 2023</h3>
+                <p class="card-text">Представлено обновление самой популярной модели BMW - седан 3 серии получил новые технологии, доработанный дизайн и улучшенные характеристики. В линейке появились новые гибридные версии.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">
+                        <i class="far fa-calendar-alt me-1"></i>28.04.2023
+                    </small>
+                    <a href="{% url 'news_list' %}" class="btn btn-outline-primary">Читать далее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title"><i class="fas fa-info-circle me-2"></i>О BMW</h3>
+                <p class="card-text">
+                    BMW (Bayerische Motoren Werke AG) - немецкий автоконцерн, производящий автомобили
+                    и мотоциклы премиум-класса. Основан в 1916 году. Символ инноваций и удовольствия от вождения.
+                </p>
+                <div class="text-center">
+                    <img src="{% static 'images/bmw_logo.png' %}" alt="BMW Logo" style="max-height: 80px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title"><i class="fas fa-star me-2"></i>Рекомендуемые модели</h3>
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <div class="card h-100">
+                            <img src="{% static 'images/i2.png' %}" class="card-img-top" alt="BMW 330i" style="height: 100px; object-fit: cover;">
+                            <div class="card-body p-2">
+                                <h6 class="card-title mb-0">BMW 330i</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="card h-100">
+                            <img src="{% static 'images/i5.png' %}" class="card-img-top" alt="BMW 530e" style="height: 100px; object-fit: cover;">
+                            <div class="card-body p-2">
+                                <h6 class="card-title mb-0">BMW 530e</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="card h-100">
+                            <img src="{% static 'images/i8.png' %}" class="card-img-top" alt="BMW 740Li" style="height: 100px; object-fit: cover;">
+                            <div class="card-body p-2">
+                                <h6 class="card-title mb-0">BMW 740Li</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

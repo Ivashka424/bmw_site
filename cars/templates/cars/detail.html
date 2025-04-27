@@ -1,0 +1,156 @@
+{% extends 'cars/base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'model_list' %}">Models</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'model_list' %}?series={{ model.series.id }}">{{ model.series.name }} Series</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ model.model_name }}</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div id="carImages" class="carousel slide mb-4" data-bs-ride="carousel">
+                <div class="carousel-inner rounded-3 overflow-hidden">
+                    <div class="carousel-item active">
+                        {% if model.main_image %}
+                        <img src="{{ model.main_image.url }}" class="d-block w-100 car-img-detail" alt="{{ model.model_name }}">
+                        {% else %}
+                        <div class="car-img-detail broken-image">Main image not available</div>
+                        {% endif %}
+                    </div>
+
+                    {% if model.image_1 %}
+                    <div class="carousel-item">
+                        <img src="{{ model.image_1.url }}" class="d-block w-100 car-img-detail" alt="{{ model.model_name }} side view">
+                    </div>
+                    {% endif %}
+
+                    {% if model.image_2 %}
+                    <div class="carousel-item">
+                        <img src="{{ model.image_2.url }}" class="d-block w-100 car-img-detail" alt="{{ model.model_name }} rear view">
+                    </div>
+                    {% endif %}
+                </div>
+
+                {% if model.image_1 or model.image_2 %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#carImages" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carImages" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                {% endif %}
+            </div>
+
+            <div class="d-grid gap-2 d-sm-flex mb-4">
+                <button class="btn btn-primary flex-grow-1">
+                    <i class="fas fa-car me-2"></i>Book Test Drive
+                </button>
+                <button class="btn btn-outline-secondary flex-grow-1">
+                    <i class="fas fa-file-pdf me-2"></i>Download Brochure
+                </button>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Description</h3>
+                    <p class="card-text">{{ model.description }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card sticky-top" style="top: 80px;">
+                <div class="card-body">
+                    <h1 class="card-title mb-1">BMW {{ model.series.name }} {{ model.model_name }}</h1>
+                    <h4 class="text-muted mb-4">{{ model.generation }} Generation ({{ model.year_start }}{% if model.year_end %}-{{ model.year_end }}{% endif %})</h4>
+
+                    <div class="specs-table mb-4">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="w-25">Body Type</th>
+                                    <td>{{ model.get_body_type_display }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Engine Options</th>
+                                    <td>{{ model.engine_options }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Power Range</th>
+                                    <td>{{ model.power_range }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Acceleration</th>
+                                    <td>{{ model.acceleration_0_100 }} (0-100 km/h)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Top Speed</th>
+                                    <td>{{ model.top_speed }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fuel Consumption</th>
+                                    <td>{{ model.fuel_consumption }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Price Range</th>
+                                    <td class="fw-bold text-primary">{{ model.price_range }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <h5 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Note</h5>
+                        <p class="mb-0">Specifications may vary depending on market and configuration. Contact your local BMW dealer for exact details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h2 class="mb-4">Related Models</h2>
+            <div class="row g-4">
+                {% for related in related_models %}
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        {% if related.main_image %}
+                        <img src="{{ related.main_image.url }}" class="card-img-top" alt="{{ related.model_name }}" style="height: 120px; object-fit: cover;">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">BMW {{ related.series.name }} {{ related.model_name }}</h5>
+                            <p class="card-text text-muted small">{{ related.generation }} ({{ related.year_start }})</p>
+                            <a href="{% url 'model_detail' related.id %}" class="btn btn-sm btn-outline-primary w-100">View</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .car-img-detail {
+        height: 400px;
+        object-fit: cover;
+        background-color: #f8f9fa;
+    }
+
+    .specs-table th {
+        color: #666;
+    }
+
+    .sticky-top {
+        z-index: 1;
+    }
+</style>
+{% endblock %}

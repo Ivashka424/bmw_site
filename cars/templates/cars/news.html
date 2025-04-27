@@ -1,0 +1,79 @@
+{% extends "cars/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Новости BMW</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Новость 1 -->
+            <div class="card mb-4">
+                <img src="{% static 'images/news1.png' %}" class="card-img-top" alt="Новая BMW iX" style="max-height: 400px; object-fit: cover;">
+                <div class="card-body">
+                    <h2 class="card-title">BMW представляет новую электрическую модель iX</h2>
+                    <p class="card-text">Компания BMW объявила о старте продаж нового полностью электрического кроссовера iX. Модель получила запас хода до 630 км по стандарту WLTP и революционную систему управления iDrive 8. Технологии будущего уже сегодня: инновационная платформа, автопилот 3-го уровня и экологичные материалы салона.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                            Опубликовано: 15.05.2023 10:30
+                        </small>
+                        <small class="text-muted">
+                            Автор: Редакция
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Новость 2 -->
+            <div class="card mb-4">
+                <img src="{% static 'images/news2.png' %}" class="card-img-top" alt="Обновленная серия 3" style="max-height: 400px; object-fit: cover;">
+                <div class="card-body">
+                    <h2 class="card-title">Обновленная BMW 3 серии 2023</h2>
+                    <p class="card-text">Представлено обновление самой популярной модели BMW - седан 3 серии получил новые технологии, доработанный дизайн и улучшенные характеристики. В линейке появились новые гибридные версии с увеличенным запасом хода на электротяге. Обновленная мультимедийная система теперь с расширенными функциями голосового управления.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                            Опубликовано: 28.04.2023 14:15
+                        </small>
+                        <small class="text-muted">
+                            Автор: Редакция
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Новость 3 -->
+            <div class="card mb-4">
+                <img src="{% static 'images/news3.png' %}" class="card-img-top" alt="Новый BMW M3 CS" style="max-height: 400px; object-fit: cover;">
+                <div class="card-body">
+                    <h2 class="card-title">Новый BMW M3 CS - самый мощный в истории</h2>
+                    <p class="card-text">BMW представляет специальную версию M3 CS с увеличенной до 550 л.с. мощностью. Разгон до 100 км/ч занимает всего 3.4 секунды. Эксклюзивные материалы отделки, облегченная конструкция и специальные настройки шасси делают эту модель настоящим гоночным автомобилем для дорог общего пользования.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                            Опубликовано: 10.04.2023 09:00
+                        </small>
+                        <small class="text-muted">
+                            Автор: Редакция
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">О новостной ленте</h5>
+                    <p class="card-text">
+                        Здесь вы найдете последние новости о BMW - анонсы новых моделей,
+                        технологические инновации и события из мира автомобилестроения.
+                    </p>
+                    <div class="text-center">
+                        <img src="{% static 'images/i1.png' %}"
+                             alt="BMW Logo" style="max-height: 80px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,310 @@
+{% extends 'cars/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h1 class="mb-0"><i class="fas fa-car me-2"></i>Модельный ряд BMW</h1>
+        <div class="dropdown">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="seriesFilter" data-bs-toggle="dropdown">
+                Фильтр по сериям
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="?series=all">Все серии</a></li>
+                {% for s in all_series %}
+                <li><a class="dropdown-item" href="?series={{ s.id }}">Серия {{ s.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Серия 3 -->
+    <div class="series-section mb-5 p-4 bg-light rounded-3">
+        <div class="d-flex align-items-center mb-4">
+            <img src="{% static 'images/i1.png' %}" alt="3 Series logo" class="logo-img me-3" style="height: 50px;">
+            <div>
+                <h2 class="mb-1">Серия 3</h2>
+                <p class="text-muted mb-0">3 модели представлены</p>
+            </div>
+        </div>
+
+        <p class="mb-4">Легендарная серия компактных представительских автомобилей, сочетающая в себе спортивный характер и элегантность.</p>
+
+        <div class="row g-4">
+            <!-- BMW 320i -->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 car-card">
+                    <div class="position-relative">
+                        <img src="{% static 'images/i1.png' %}" class="card-img-top car-img" alt="BMW 320i">
+                        <div class="car-hover-info">
+                            <div class="hover-info-content">
+                                <h6 class="text-white">Характеристики</h6>
+                                <ul class="list-unstyled small">
+                                    <li><strong>Кузов:</strong> Седан</li>
+                                    <li><strong>Двигатель:</strong> 2.0L Turbo (184 л.с.)</li>
+                                    <li><strong>Разгон 0-100:</strong> 7.1 сек</li>
+                                    <li><strong>Цена:</strong> от 3 950 000 ₽</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">BMW 320i</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">G20 (2020-н.в.)</h6>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="badge bg-primary">Седан</span>
+                            <span class="text-primary fw-bold">от 3 950 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMW 330i -->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 car-card">
+                    <div class="position-relative">
+                        <img src="{% static 'images/i2.png' %}" class="card-img-top car-img" alt="BMW 330i">
+                        <div class="car-hover-info">
+                            <div class="hover-info-content">
+                                <h6 class="text-white">Характеристики</h6>
+                                <ul class="list-unstyled small">
+                                    <li><strong>Кузов:</strong> Седан</li>
+                                    <li><strong>Двигатель:</strong> 2.0L Turbo (258 л.с.)</li>
+                                    <li><strong>Разгон 0-100:</strong> 5.8 сек</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">BMW 330i</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">G20 (2020-н.в.)</h6>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="badge bg-primary">Седан</span>
+                            <span class="text-primary fw-bold">от 4 550 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMW M340i -->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 car-card">
+                    <div class="position-relative">
+                        <img src="{% static 'images/i3.png' %}" class="card-img-top car-img" alt="BMW M340i">
+                        <div class="car-hover-info">
+                            <div class="hover-info-content">
+                                <h6 class="text-white">Характеристики</h6>
+                                <ul class="list-unstyled small">
+                                    <li><strong>Кузов:</strong> Седан</li>
+                                    <li><strong>Двигатель:</strong> 3.0L Turbo (382 л.с.)</li>
+                                    <li><strong>Разгон 0-100:</strong> 4.4 сек</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">BMW M340i</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">G20 (2020-н.в.)</h6>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="badge bg-primary">Седан</span>
+                            <span class="text-primary fw-bold">от 5 850 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Серия 5 -->
+    <div class="series-section mb-5 p-4 bg-light rounded-3">
+        <div class="d-flex align-items-center mb-4">
+            <img src="{% static 'images/i4.png' %}" alt="5 Series logo" class="logo-img me-3" style="height: 50px;">
+            <div>
+                <h2 class="mb-1">Серия 5</h2>
+                <p class="text-muted mb-0">3 модели представлены</p>
+            </div>
+        </div>
+
+        <p class="mb-4">Бизнес-седан, сочетающий в себе динамику, комфорт и инновационные технологии.</p>
+
+        <div class="row g-4">
+            <!-- BMW 520i -->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 car-card">
+                    <div class="position-relative">
+                        <img src="{% static 'images/i4.png' %}" class="card-img-top car-img" alt="BMW 520i">
+                        <div class="car-hover-info">
+                            <div class="hover-info-content">
+                                <h6 class="text-white">Характеристики</h6>
+                                <ul class="list-unstyled small">
+                                    <li><strong>Кузов:</strong> Седан</li>
+                                    <li><strong>Двигатель:</strong> 2.0L Turbo (184 л.с.)</li>
+                                    <li><strong>Разгон 0-100:</strong> 7.9 сек</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">BMW 520i</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">G30 (2020-н.в.)</h6>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="badge bg-primary">Седан</span>
+                            <span class="text-primary fw-bold">от 4 750 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMW 530e -->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 car-card">
+                    <div class="position-relative">
+                        <img src="{% static 'images/i5.png' %}" class="card-img-top car-img" alt="BMW 530e">
+                        <div class="car-hover-info">
+                            <div class="hover-info-content">
+                                <h6 class="text-white">Характеристики</h6>
+                                <ul class="list-unstyled small">
+                                    <li><strong>Кузов:</strong> Седан</li>
+                                    <li><strong>Двигатель:</strong> 2.0L Hybrid (252 л.с.)</li>
+                                    <li><strong>Разгон 0-100:</strong> 6.1 сек</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">BMW 530e</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">G30 (2020-н.в.)</h6>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="badge bg-primary">Гибрид</span>
+                            <span class="text-primary fw-bold">от 5 250 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMW M550i -->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 car-card">
+                    <div class="position-relative">
+                        <img src="{% static 'images/i6.png' %}" class="card-img-top car-img" alt="BMW M550i">
+                        <div class="car-hover-info">
+                            <div class="hover-info-content">
+                                <h6 class="text-white">Характеристики</h6>
+                                <ul class="list-unstyled small">
+                                    <li><strong>Кузов:</strong> Седан</li>
+                                    <li><strong>Двигатель:</strong> 4.4L V8 Turbo (530 л.с.)</li>
+                                    <li><strong>Разгон 0-100:</strong> 3.8 сек</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">BMW M550i</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">G30 (2020-н.в.)</h6>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="badge bg-primary">Седан</span>
+                            <span class="text-primary fw-bold">от 7 900 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Серия 7 -->
+    <div class="series-section mb-5 p-4 bg-light rounded-3">
+        <div class="d-flex align-items-center mb-4">
+            <img src="{% static 'images/i7.png' %}" alt="7 Series logo" class="logo-img me-3" style="height: 50px;">
+            <div>
+                <h2 class="mb-1">Серия 7</h2>
+                <p class="text-muted mb-0">3 модели представлены</p>
+            </div>
+        </div>
+
+        <p class="mb-4">Флагманский седан класса люкс, воплощающий в себе высочайший уровень комфорта и передовые технологии.</p>
+
+        <div class="row g-4">
+            <!-- BMW 730Li -->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 car-card">
+                    <div class="position-relative">
+                        <img src="{% static 'images/i7.png' %}" class="card-img-top car-img" alt="BMW 730Li">
+                        <div class="car-hover-info">
+                            <div class="hover-info-content">
+                                <h6 class="text-white">Характеристики</h6>
+                                <ul class="list-unstyled small">
+                                    <li><strong>Кузов:</strong> Седан</li>
+                                    <li><strong>Двигатель:</strong> 2.0L Turbo (258 л.с.)</li>
+                                    <li><strong>Разгон 0-100:</strong> 6.3 сек</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">BMW 730Li</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">G11 (2020-н.в.)</h6>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="badge bg-primary">Седан</span>
+                            <span class="text-primary fw-bold">от 7 200 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMW 740Li -->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 car-card">
+                    <div class="position-relative">
+                        <img src="{% static 'images/i8.png' %}" class="card-img-top car-img" alt="BMW 740Li">
+                        <div class="car-hover-info">
+                            <div class="hover-info-content">
+                                <h6 class="text-white">Характеристики</h6>
+                                <ul class="list-unstyled small">
+                                    <li><strong>Кузов:</strong> Седан</li>
+                                    <li><strong>Двигатель:</strong> 3.0L Turbo (340 л.с.)</li>
+                                    <li><strong>Разгон 0-100:</strong> 5.1 сек</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">BMW 740Li</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">G11 (2020-н.в.)</h6>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="badge bg-primary">Седан</span>
+                            <span class="text-primary fw-bold">от 8 900 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMW M760Li -->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 car-card">
+                    <div class="position-relative">
+                        <img src="{% static 'images/i9.png' %}" class="card-img-top car-img" alt="BMW M760Li">
+                        <div class="car-hover-info">
+                            <div class="hover-info-content">
+                                <h6 class="text-white">Характеристики</h6>
+                                <ul class="list-unstyled small">
+                                    <li><strong>Кузов:</strong> Седан</li>
+                                    <li><strong>Двигатель:</strong> 6.6L V12 TwinTurbo (610 л.с.)</li>
+                                    <li><strong>Разгон 0-100:</strong> 3.7 сек</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">BMW M760Li</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">G11 (2020-н.в.)</h6>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span class="badge bg-primary">Седан</span>
+                            <span class="text-primary fw-bold">от 12 500 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
